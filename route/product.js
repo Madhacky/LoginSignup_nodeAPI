@@ -7,6 +7,9 @@ router.post("/addProduct", checkAuth, (req, res, next) => {
   const product = new Product({
     _id: new mongoose.Types.ObjectId(),
     productname: req.body.productname,
+    description: req.body.description,
+    rating: req.body.rating,
+    image: String,
     quantity: req.body.quantity,
     instock: req.body.quantity < 1 ? false : true,
     createdDate: new Date(),

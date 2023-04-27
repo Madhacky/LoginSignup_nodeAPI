@@ -3,6 +3,9 @@ productSchema = mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
   productname: String,
   quantity: Number,
+  description: String,
+  rating: Number,
+  image: String,
   instock: Boolean,
   createdDate: String,
 });
