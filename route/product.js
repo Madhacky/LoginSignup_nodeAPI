@@ -9,7 +9,7 @@ router.post("/addProduct", checkAuth, (req, res, next) => {
     productname: req.body.productname,
     description: req.body.description,
     rating: req.body.rating,
-    image: String,
+    image: req.body.image,
     quantity: req.body.quantity,
     instock: req.body.quantity < 1 ? false : true,
     createdDate: new Date(),
