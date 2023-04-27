@@ -4,6 +4,7 @@ const userRoute = require("./route/user");
 const productRoute = require("./route/product");
 const bodyParser = require("body-parser");
 const app = express();
+const fileupload = require("express-fileupload");
 require("dotenv").config();
 const mongoString = process.env.DATABASE_URL;
 mongoose.connect(mongoString);
@@ -15,7 +16,11 @@ database.on("error", (error) => {
 database.once("connected", () => {
   console.log("Database Connected");
 });
-
+app.use(
+  fileupload({
+    useTempFiles: true,
+  })
+);
 app.use(express.json());
 const PORT = process.env.PORT || 3030;
 app.listen(PORT, () => {
